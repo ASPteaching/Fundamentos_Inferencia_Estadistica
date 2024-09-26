@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.47">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Variables aleatorias y Distribuciones de probabilidad – Fundamentos de Inferencia Estadistica</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03-distribucionesNotables.html" rel="next">
+<link href="./01-probabilidad.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="blocks.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-variablesAleatorias.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables aleatorias y Distribuciones de probabilidad</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Fundamentos de Inferencia Estadistica</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/ASPteaching/FundamentosInferencia/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Fundamentos-de-Inferencia-Estadistica.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-probabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Probabilidad y Experimentos aleatorios</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-variablesAleatorias.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables aleatorias y Distribuciones de probabilidad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-distribucionesNotables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Distribuciones Notables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-grandesMuestras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Grandes muestras</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-vectoresAleatorios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distribuciones de probabilidad multidimensionales</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-introInferencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introducción a la inferencia estadística</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-estimacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimación por intérvalos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-pruebasHipotesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-inferenciaAplicada.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Inferencia Aplicada</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-computerintensive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Computación Intensiva y <em>Multiple Testing</em></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de Contenidos</h2>
+   
+  <ul class="collapse">
+  <li><a href="#el-espacio-muestral-y-sus-elementos" id="toc-el-espacio-muestral-y-sus-elementos" class="nav-link active" data-scroll-target="#el-espacio-muestral-y-sus-elementos"><span class="header-section-number">2.1</span> El espacio muestral y sus elementos</a></li>
+  <li><a href="#representación-numérica-de-los-sucesos-elementales.-variables-aleatorias" id="toc-representación-numérica-de-los-sucesos-elementales.-variables-aleatorias" class="nav-link" data-scroll-target="#representación-numérica-de-los-sucesos-elementales.-variables-aleatorias"><span class="header-section-number">2.2</span> Representación numérica de los sucesos elementales. Variables aleatorias</a></li>
+  <li><a href="#caracterización-de-una-variable-aleatoria-a-través-de-la-probabilidad.-función-de-distribución" id="toc-caracterización-de-una-variable-aleatoria-a-través-de-la-probabilidad.-función-de-distribución" class="nav-link" data-scroll-target="#caracterización-de-una-variable-aleatoria-a-través-de-la-probabilidad.-función-de-distribución"><span class="header-section-number">2.3</span> Caracterización de una variable aleatoria a través de la probabilidad. Función de distribución</a></li>
+  <li><a href="#propiedades-de-la-función-de-distribución" id="toc-propiedades-de-la-función-de-distribución" class="nav-link" data-scroll-target="#propiedades-de-la-función-de-distribución"><span class="header-section-number">2.4</span> Propiedades de la función de distribución</a></li>
+  <li><a href="#clasificación-de-las-variables-aleatorias" id="toc-clasificación-de-las-variables-aleatorias" class="nav-link" data-scroll-target="#clasificación-de-las-variables-aleatorias"><span class="header-section-number">2.5</span> Clasificación de las variables aleatorias</a></li>
+  <li><a href="#variable-aleatoria-discretas" id="toc-variable-aleatoria-discretas" class="nav-link" data-scroll-target="#variable-aleatoria-discretas"><span class="header-section-number">2.6</span> Variable aleatoria discretas</a></li>
+  <li><a href="#variables-aleatorias-continuas-1" id="toc-variables-aleatorias-continuas-1" class="nav-link" data-scroll-target="#variables-aleatorias-continuas-1"><span class="header-section-number">2.7</span> Variables aleatorias continuas</a></li>
+  <li><a href="#independencia-de-variables-aleatorias" id="toc-independencia-de-variables-aleatorias" class="nav-link" data-scroll-target="#independencia-de-variables-aleatorias"><span class="header-section-number">2.8</span> Independencia de variables aleatorias</a></li>
+  <li><a href="#caracterización-de-una-variable-aleatoria-a-través-de-parámetros" id="toc-caracterización-de-una-variable-aleatoria-a-través-de-parámetros" class="nav-link" data-scroll-target="#caracterización-de-una-variable-aleatoria-a-través-de-parámetros"><span class="header-section-number">2.9</span> Caracterización de una variable aleatoria a través de parámetros</a></li>
+  <li><a href="#esperanza-de-una-variable-aleatoria-discreta" id="toc-esperanza-de-una-variable-aleatoria-discreta" class="nav-link" data-scroll-target="#esperanza-de-una-variable-aleatoria-discreta"><span class="header-section-number">2.10</span> Esperanza de una variable aleatoria discreta</a></li>
+  <li><a href="#esperanza-de-una-variable-aleatoria-continua" id="toc-esperanza-de-una-variable-aleatoria-continua" class="nav-link" data-scroll-target="#esperanza-de-una-variable-aleatoria-continua"><span class="header-section-number">2.11</span> Esperanza de una variable aleatoria continua</a></li>
+  <li><a href="#propiedades-de-la-esperanza-matemática" id="toc-propiedades-de-la-esperanza-matemática" class="nav-link" data-scroll-target="#propiedades-de-la-esperanza-matemática"><span class="header-section-number">2.12</span> Propiedades de la esperanza matemática</a></li>
+  <li><a href="#varianza-de-una-variable-aleatoria" id="toc-varianza-de-una-variable-aleatoria" class="nav-link" data-scroll-target="#varianza-de-una-variable-aleatoria"><span class="header-section-number">2.13</span> Varianza de una variable aleatoria</a></li>
+  <li><a href="#momentos-de-orden-k-de-una-variable-aleatoria" id="toc-momentos-de-orden-k-de-una-variable-aleatoria" class="nav-link" data-scroll-target="#momentos-de-orden-k-de-una-variable-aleatoria"><span class="header-section-number">2.14</span> Momentos (de orden <span class="math inline">\(k\)</span>) de una variable aleatoria</a></li>
+  <li><a href="#definición-formal-de-variable-aleatoria" id="toc-definición-formal-de-variable-aleatoria" class="nav-link" data-scroll-target="#definición-formal-de-variable-aleatoria"><span class="header-section-number">2.15</span> Definición formal de variable aleatoria</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables aleatorias y Distribuciones de probabilidad</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="el-espacio-muestral-y-sus-elementos" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="el-espacio-muestral-y-sus-elementos"><span class="header-section-number">2.1</span> El espacio muestral y sus elementos</h2>
+<p>Cuando llevamos a cabo un experimento aleatorio, el conjunto <span class="math inline">\(\Omega\)</span> de resultados posibles forman el denominado espacio muestral. Sus elementos <span class="math inline">\(\omega\)</span> (resultados o sucesos elementales) deben ser conocidos por el investigador que realiza la experiencia, aun cuando no podamos determinar a priori el resultado particular de una realización concreta.</p>
+<p>Supondremos que también conocemos la manera de asignar una probabilidad sobre el conjunto de enunciados o sucesos observables que se pueden construir a partir de <span class="math inline">\(\Omega\)</span>. Es decir, supondremos la existencia de un espacio de probabilidad construido a partir de los resultados de <span class="math inline">\(\Omega\)</span>.</p>
+<p>Generalmente, la estructura del espacio muestral no permite, o por lo menos no facilita, su tratamiento matemático. Pensemos en la inmensa variedad en la naturaleza de resultados posibles de diferentes experimentos. Además es bastante frecuente que no nos interesen los resultados en sí, sino una característica que, de alguna manera, resuma el resultado del experimento.</p>
+</section>
+<section id="representación-numérica-de-los-sucesos-elementales.-variables-aleatorias" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="representación-numérica-de-los-sucesos-elementales.-variables-aleatorias"><span class="header-section-number">2.2</span> Representación numérica de los sucesos elementales. Variables aleatorias</h2>
+<p>La forma de resumen que adoptaremos es la asignación a cada suceso elemental de un valor numérico, en particular, de un número real.</p>
+<p>En la práctica la asignación de un valor numérico a cada elemento del espacio muestral se hace siguiendo una regla o enunciado, según el interés concreto del experimentador. Evidentemente, podemos construir diversas maneras de asignar valores numéricos a los mismos resultados de un experimento.</p>
+<p>Hablando en términos coloquiales, podemos decir que cada regla de asignación corresponde a una determinada variable que se puede medir sobre los sucesos elementales.</p>
+<p>Nótese que es posible construir múltiples variables sobre un mismo espacio de probabilidad. En términos algo más formales, las reglas de asignación se pueden interpretar como una aplicación de <span class="math inline">\(\Omega\)</span> en el conjunto de números reales. <span class="math display">\[
+\begin{aligned}
+X: \Omega &amp; \rightarrow \mathbb{R} \\
+\omega &amp; \rightarrow X(\omega)
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(X\)</span> representa la variable o regla de asignación concreta. El conjunto de valores numéricos que puede tomar una variable, y que depende de la naturaleza de la misma variable, recibe el nombre de recorrido de la variable.</p>
+<p>A partir de este momento, los sucesos elementales quedan substituidos por sus valores numéricos de acuerdo a una determinada variable y permiten un mayor tratamiento matemático en el marco de la teoría de la probabilidad.</p>
+<p>El apelativo aleatoria que reciben las variables hace referencia al hecho de que los posibles valores que toman dependen de los resultados de un fenómeno aleatorio que se presentan con una determinada probabilidad.</p>
+<p>Como un complemento al tema presentamos la definición formal de variable aleatoria, donde se introducen las restricciones a las reglas de asignación numérica que posibilitan el tratamiento matemático de las variables.</p>
+</section>
+<section id="caracterización-de-una-variable-aleatoria-a-través-de-la-probabilidad.-función-de-distribución" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="caracterización-de-una-variable-aleatoria-a-través-de-la-probabilidad.-función-de-distribución"><span class="header-section-number">2.3</span> Caracterización de una variable aleatoria a través de la probabilidad. Función de distribución</h2>
+<p>Una vez que tenemos definida una variable aleatoria, ésta queda totalmente caracterizada en el momento en que somos capaces de determinar la probabilidad de que la variable tome valores en cualquier intervalo de la recta real. Dado que los posibles valores que puede tomar la variable, es decir, su recorrido, pueden ser muy grandes (infinitos de hecho), el problema de caracterizar una variable aleatoria se ha resuelto a través de la definición de una serie de funciones matemáticas.</p>
+<p>La más general de dichas funciones es la función de distribución. Definimos la función de distribución de una variable aleatoria <span class="math inline">\(X\)</span> como la aplicación</p>
+<p><span class="math display">\[
+\begin{array}{rll}
+F: &amp; \mathbb{R} &amp; \rightarrow[0,1] \\
+&amp; x &amp; \rightarrow F(x)=P(X \leq x)=P\{\omega \in \Omega \mid X(\omega) \leq x\}
+\end{array}
+\]</span></p>
+<p>Por tanto, para cada punto de la recta real, el valor de la función de distribución es la probabilidad del suceso formado por los resultados del experimento que tienen asignado un valor de la variable aleatoria menor o igual a dicho punto. O también podemos decir que es la probabilidad inducida en el intervalo de la recta <span class="math inline">\((-\infty, x]\)</span>.</p>
+<p>Hay que hacer notar que siempre será posible determinar dicha probabilidad gracias a los requerimientos exigidos en la definición formal de variable aleatoria. Por tanto, toda variable aleatoria tiene asociada una función de distribución. Nos referimos a esta función cuando decimos que conocemos la distribución de la variable aleatoria.</p>
+</section>
+<section id="propiedades-de-la-función-de-distribución" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="propiedades-de-la-función-de-distribución"><span class="header-section-number">2.4</span> Propiedades de la función de distribución</h2>
+<p>Resumimos a continuación las propiedades más importantes de la función de distribución:</p>
+<ol type="1">
+<li><span class="math inline">\(0 \leq F(x) \leq 1\)</span></li>
+<li><span class="math inline">\(\lim _{x \rightarrow+\infty} F(x)=1\)</span></li>
+<li><span class="math inline">\(\lim _{x \rightarrow-\infty} F(x)=0\)</span></li>
+<li><span class="math inline">\(x_{1}&lt;x_{2} \Rightarrow F\left(x_{1}\right) \leq F\left(x_{2}\right)\)</span></li>
+<li><span class="math inline">\(\lim _{x \rightarrow a^{+}} F(x)=F(a) \quad \forall a \in \mathbb{R}_{\text {la derecha. }}^{\text {Función siempre continua por }}\)</span></li>
+</ol>
+<p>Toda función que verifique las propiedades anteriores es una función de distribución y toda función de distribución caracteriza una determinada variable aleatoria sobre algún espacio de probabilidad.</p>
+<p>Las propiedades anteriores se traducen en un tipo de gráfica para la función de distribución del tipo de las que mostramos a continuación:</p>
+<p>Primer tipo</p>
+<p><img src="https://cdn.mathpix.com/cropped/2024_09_12_f7af3f47a4aa56dad47ag-06.jpg?height=824&amp;width=1315&amp;top_left_y=1527&amp;top_left_x=376" class="img-fluid"></p>
+<p>Segundo tipo</p>
+<p><img src="https://cdn.mathpix.com/cropped/2024_09_12_f7af3f47a4aa56dad47ag-07.jpg?height=823&amp;width=1315&amp;top_left_y=91&amp;top_left_x=376" class="img-fluid"></p>
+<p>Evidentemente, podrían aparecer distribuciones, y por tanto gráficas, que combinen las características de los dos modelos anteriores.</p>
+</section>
+<section id="clasificación-de-las-variables-aleatorias" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="clasificación-de-las-variables-aleatorias"><span class="header-section-number">2.5</span> Clasificación de las variables aleatorias</h2>
+<p>Para su estudio, las variables aleatorias se clasifican en variables discretas o variables contínuas.</p>
+<section id="variables-aleatorias-discretas" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="variables-aleatorias-discretas"><span class="header-section-number">2.5.1</span> Variables aleatorias discretas</h3>
+<p>Diremos que una variable aleatoria es discreta si su recorrido es finito o infinito numerable. Generalmente, este tipo de variables van asociadas a experimentos en los cuales se cuenta el número de veces que se ha presentado un suceso o donde el resultado es una puntuación concreta.</p>
+<p>Los puntos del recorrido se corresponden con saltos en la gráfica de la función de distribución, que correspondería al segundo tipo de gráfica visto anteriormente.</p>
+</section>
+<section id="variables-aleatorias-continuas" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="variables-aleatorias-continuas"><span class="header-section-number">2.5.2</span> Variables aleatorias continuas</h3>
+<p>Son aquellas en las que la función de distribución es una función continua. Se corresponde con el primer tipo de gráfica visto.</p>
+<p>Generalmente, se corresponden con variables asociadas a experimentos en los cuales la variable medida puede tomar cualquier valor en un intervalo; mediciones biométricas, por ejemplo.</p>
+<p>Un caso particular dentro de las variables aleatorias continuas y al cual pertenecen todos los ejemplos usualmente utilizados, son las denominadas variables aleatorias absolutamente continuas.</p>
+<section id="variables-aleatorias-absolutamente-continuas" class="level4" data-number="2.5.2.1">
+<h4 data-number="2.5.2.1" class="anchored" data-anchor-id="variables-aleatorias-absolutamente-continuas"><span class="header-section-number">2.5.2.1</span> Variables aleatorias absolutamente continuas</h4>
+<p>Diremos que una variable aleatoria <span class="math inline">\(X\)</span> continua tiene una distribución absolutamente continua si existe una función real <span class="math inline">\(f\)</span>, positiva e integrable en el conjunto de números reales, tal que la función de distribución <span class="math inline">\(F\)</span> de <span class="math inline">\(X\)</span> se puede expresar como</p>
+<p><span class="math display">\[
+F(x)=\int_{-\infty}^{x} f(t) d t
+\]</span></p>
+<p>Una variable aleatoria con distribución absolutamente continua, por extensión, se la clasifica como variable aleatoria absolutamente continua.</p>
+<p>A la función <span class="math inline">\(f\)</span> se la denomina función de densidad de probabilidad de la variable <span class="math inline">\(X\)</span>.</p>
+<p>Hay que hacer notar que no toda variable continua es absolutamente continua, pero los ejemplos son complicados, algunos utilizan para su construcción el conjunto de Cantor, y quedan fuera del nivel y del objetivo de este curso.</p>
+<p>Igualmente indicaremos que los tipos de variables comentados anteriormente forman únicamente una parte de todos los posibles tipos de variables, sin embargo contienen prácticamente todas las variables aleatorias que encontramos usualmente.</p>
+<p>Tal como se estudiará más adelante, existen algunas familias de funciones de distribución, tanto dentro del grupo de las discretas como de las continuas, que por su importancia reciben un nombre propio y se estudiarán en los capítulos siguientes.</p>
+<p>En ocasiones encontramos variables de tipo mixto, es decir que se comportan como discretas o contínuas para distintos grupos de valores.</p>
+</section>
+</section>
+</section>
+<section id="variable-aleatoria-discretas" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="variable-aleatoria-discretas"><span class="header-section-number">2.6</span> Variable aleatoria discretas</h2>
+<p>Una variable aleatoria <span class="math inline">\(X\)</span> diremos que es discreta si su recorrido es finito o infinito numerable, recorrido que denotaremos de la forma <span class="math inline">\(\left\{x_{1}, x_{2}, \ldots, x_{\mathrm{k}}, \ldots\right\}\)</span>.</p>
+<p>El ejemplo más sencillo de variable aleatoria discreta lo constituyen las variables indicadoras. Sea <span class="math inline">\(A\)</span> un suceso observable, se llama indicador de <span class="math inline">\(A\)</span> a la variable aleatoria definida por</p>
+<p><span class="math display">\[
+\begin{aligned}
+I_{A}: \Omega &amp; \rightarrow \mathbb{R} \\
+\omega &amp; \rightarrow I_{A}(\omega)=\left\{\begin{array}{lll}
+1 &amp; \text { si } \omega \in A \\
+0 &amp; \text { si } &amp; A
+\end{array}\right.
+\end{aligned}
+\]</span></p>
+<section id="ejercicio" class="level4" data-number="2.6.0.1">
+<h4 data-number="2.6.0.1" class="anchored" data-anchor-id="ejercicio"><span class="header-section-number">2.6.0.1</span> Ejercicio:</h4>
+<p>Construir, a partir de las variables indicadoras de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, las siguientes variables indicadoras?</p>
+<p><span class="math display">\[
+I_{A \cap B} ; I_{A \cup B} ; I_{A} c ; I_{\Omega}
+\]</span></p>
+<section id="solución" class="level5" data-number="2.6.0.1.1">
+<h5 data-number="2.6.0.1.1" class="anchored" data-anchor-id="solución"><span class="header-section-number">2.6.0.1.1</span> Solución</h5>
+<p><span class="math display">\[
+\begin{gathered}
+I_{A \cap B}=I_{A} \cdot I_{B} \\
+I_{A \cup B}=I_{A}+I_{B}-I_{A \cap B} \\
+I_{A} c=1-I_{A} \\
+\Omega=1
+\end{gathered}
+\]</span></p>
+</section>
+</section>
+<section id="caracterización-a-través-de-la-función-de-densidad-o-de-probabilidad" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="caracterización-a-través-de-la-función-de-densidad-o-de-probabilidad"><span class="header-section-number">2.6.1</span> Caracterización a través de la función de densidad o de probabilidad</h3>
+<p>Las variables aleatorias discretas vienen caracterizadas a través de una función que asocia cada elemento del recorrido con su probabilidad. Dicha función recibe varios nombres según los autores: función o ley de probabilidad, o también función de densidad de la variable aleatoria discreta.</p>
+<p>Podemos representarla de la manera siguiente:</p>
+<p><span class="math display">\[
+\begin{array}{rll}
+f: &amp; \mathbb{R} &amp; \rightarrow[0,1] \\
+&amp; x &amp; \rightarrow f(x)=P(X=x)=P\{\omega \in \Omega \mid X(\omega)=x\}
+\end{array}
+\]</span></p>
+<p>La función definida anteriormente es nula en todo punto que no pertenezca al recorrido. Es evidente que, al ser una probabilidad, la función de densidad discreta está acotada <span class="math inline">\(0 \leq f(x) \leq 1\)</span>. Toda función de densidad discreta puede expresarse de manera explícita a través de una tabla que asocie directamente puntos del recorrido con sus probabilidades.</p>
+<p>Ejemplo: Consideremos la variable indicadora del suceso <span class="math inline">\(A\)</span> :</p>
+<p><span class="math display">\[
+\begin{aligned}
+I_{A}: \Omega &amp; \rightarrow \mathbb{R} \\
+\omega &amp; \rightarrow I_{A}(\omega)=\left\{\begin{array}{lll}
+1 &amp; \text { si } &amp; \omega \in A \\
+0 &amp; \text { si } &amp; A
+\end{array}\right.
+\end{aligned}
+\]</span></p>
+<p>La función de densidad de esta variable sería la siguiente:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(f(x)=P(X=x)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1-P(A)=P\left(A^{\mathrm{c}}\right)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P(A)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>El recorrido está formado por dos valores: 1 y 0 , con las mismas probabilidades que las del suceso <span class="math inline">\(A\)</span> y su complementario, respectivamente.</p>
+<p>En otros casos la función de densidad se expresa a través de una fórmula matemática que define una regla de asignación de probabilidades para los valores del recorrido.</p>
+<section id="ejemplo" class="level4" data-number="2.6.1.1">
+<h4 data-number="2.6.1.1" class="anchored" data-anchor-id="ejemplo"><span class="header-section-number">2.6.1.1</span> Ejemplo</h4>
+<p><span class="math display">\[
+P(X=x)=0,2 \cdot 0,8^{x-1}, \quad x=1,2, \ldots
+\]</span></p>
+<p>es la función de densidad de una variable aleatoria discreta con recorrido numerable.</p>
+</section>
+</section>
+<section id="propiedades-de-la-función-de-densidad-discreta" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="propiedades-de-la-función-de-densidad-discreta"><span class="header-section-number">2.6.2</span> Propiedades de la función de densidad discreta</h3>
+<ol type="1">
+<li></li>
+</ol>
+<p><span class="math display">\[
+0 \leq f(x) \leq 1
+\]</span></p>
+<ol start="2" type="1">
+<li><span class="math inline">\(\sum_{i=1}^{n} f\left(x_{i}\right)=1\)</span>, si el recorrido es finito.</li>
+<li><span class="math inline">\(\sum_{i=1}^{\infty} f\left(x_{i}\right)=1\)</span>, si el recorrido es numerable.</li>
+</ol>
+</section>
+<section id="relaciones-entre-la-función-de-distribución-y-la-función-de-densidad-discreta.-probabilidad-de-intervalos." class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="relaciones-entre-la-función-de-distribución-y-la-función-de-densidad-discreta.-probabilidad-de-intervalos."><span class="header-section-number">2.6.3</span> Relaciones entre la función de distribución y la función de densidad discreta. <br> Probabilidad de intervalos.</h3>
+<p>Existe una relación muy importante entre las funciones de distribución <span class="math inline">\(F(x)\)</span> y de densidad <span class="math inline">\(f(x)\)</span> de una variable aleatoria discreta. La función de distribución en un punto se obtiene acumulando el valor de la función de densidad para todos los valores del recorrido menores o iguales al punto en cuestión.</p>
+<p><span class="math display">\[
+F(x)=\sum_{x_{i} \leq x} f\left(x_{i}\right) \quad \text { para todo } \mathrm{x}_{\mathrm{i}} \text { perteneciente al recorrido de la variable. }
+\]</span></p>
+<p>En efecto, supongamos que el recorrido de una variable discreta <span class="math inline">\(X\)</span> es <span class="math inline">\(\left\{x_{1}, x_{2}, \ldots, x_{k}, \ldots\right\}\)</span> y que deseamos conocer el valor de la función de distribución en un punto <span class="math inline">\(x\)</span> tal que <span class="math inline">\(x_{i} \leq x&lt;x_{i+1}\)</span>, entonces es inmediato que</p>
+<p><span class="math display">\[
+F(x)=P(X \leq x)=P\left(X=x_{1}\right)+P\left(X=x_{2}\right)+\ldots+P\left(X=x_{i}\right)=f\left(x_{1}\right)+f\left(x_{2}\right)+f\left(x_{3}\right)+\ldots+f\left(x_{i}\right)
+\]</span></p>
+<p>Por ejemplo, para una variable indicadora de un suceso <span class="math inline">\(A\)</span>, tenemos la relación siguiente:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Valor de <span class="math inline">\(\boldsymbol{x}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\boldsymbol{f}(\boldsymbol{x})\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\boldsymbol{F}(\boldsymbol{x})\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\((-\infty, 0)\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\(P\left(A^{c}\right)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P\left(A^{\mathrm{c}}\right)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\((0,1)\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(P\left(A^{\mathrm{c}}\right)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span class="math inline">\(P(A)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P\left(A^{\mathrm{c}}\right)+P(A)=1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\((1,+\infty)\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>A partir de las funciones de densidad y de distribución es posible expresar las probabilidades para cualquier posible intervalo de valores de la variable. Por ejemplo:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Intervalo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P(X \leq a)=F(a)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(P(X&lt;a)=F(a)-f(a)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P(X&gt;a)=1-F(a)=1-P(X \leq a)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(P(X \geq a)=1-F(a)+f(a)=1-P(X&gt;a)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P(a&lt;X \leq b)=F(b)-F(a)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(P(a&lt;X&lt;b)=F(b)-f(b)-F(a)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P(a \leq X \leq b)=F(b)-F(a)+f(a)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(P(a \leq X&lt;b)=F(b)-f(b)-F(a)+f(a)\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="variables-aleatorias-continuas-1" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="variables-aleatorias-continuas-1"><span class="header-section-number">2.7</span> Variables aleatorias continuas</h2>
+<p>Una variable aleatoria <span class="math inline">\(X\)</span> diremos que es continua si su función de distribución es una función continua. En la práctica, se corresponden con variables asociadas con experimentos en los cuales la variable medida puede tomar cualquier valor en un intervalo: mediciones biométricas, intervalos de tiempo, áreas, etc.</p>
+<section id="ejemplos" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="ejemplos"><span class="header-section-number">2.7.1</span> Ejemplos</h3>
+<ul>
+<li>Resultado de un generador de números aleatorios entre 0 y 1. Es el ejemplo más sencillo que podemos considerar, es un caso particular de una familia de variables aleatorias que tienen una distribución uniforme en un intervalo <span class="math inline">\([a, b]\)</span>. Se corresponde con la elección al azar de cualquier valor entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>.</li>
+<li>Estatura de una persona elegida al azar en una población. El valor que se obtenga será una medición en cualquier unidad de longitud ( m , cm , etc.) dentro de unos límites condicionados por la naturaleza de la variable. El resultado es impredecible con antelación, pero existen intervalos de valores más probables que otros debido a la distribución de alturas en la población. Más adelante veremos que, generalmente, variables biométricas como la altura se adaptan un modelo de distribución denominado distribución Normal y representado por una campana de Gauss.</li>
+</ul>
+<p>Dentro de las variables aleatorias continuas tenemos las variables aleatorias absolutamente continuas.</p>
+<p>Diremos que una variable aleatoria <span class="math inline">\(X\)</span> continua tiene una distribución absolutamente continua si existe una función real <span class="math inline">\(f\)</span>, positiva e integrable en el conjunto de números reales, tal que la función de distribución <span class="math inline">\(F\)</span> de <span class="math inline">\(X\)</span> se puede expresar como</p>
+<p><span class="math display">\[
+F(x)=\int_{-\infty}^{x} f(t) d t
+\]</span></p>
+<p>Una variable aleatoria con distribución absolutamente continua, por extensión, se clasifica como variable aleatoria absolutamente continua.</p>
+<p>En cuanto a nuestro manual, todas las variables aleatorias continuas con las que trabajemos pertenecen al grupo de las variables absolutamente continuas, en particular, los ejemplos y casos expuestos.</p>
+</section>
+<section id="función-de-densidad-continua" class="level3" data-number="2.7.2">
+<h3 data-number="2.7.2" class="anchored" data-anchor-id="función-de-densidad-continua"><span class="header-section-number">2.7.2</span> Función de densidad continua</h3>
+<p>La función que caracteriza las variables continuas es aquella función <span class="math inline">\(f\)</span> positiva e integrable en los reales, tal que acumulada desde <span class="math inline">\(-\infty\)</span> hasta un punto <span class="math inline">\(x\)</span>, nos proporciona el valor de la función de distribución en <span class="math inline">\(x, F(\mathrm{x})\)</span>. Recibe el nombre de función de densidad de la variable aleatoria continua.</p>
+<p><span class="math display">\[
+F(x)=\int_{-\infty}^{x} f(t) d t
+\]</span></p>
+<p>Las funciones de densidad discreta y continua tienen, por tanto, un significado análogo, ambas son las funciones que acumuladas (en forma de sumatorio en el caso discreto o en forma de integral en el caso continuo) dan como resultado la función de distribución.</p>
+<p>La diferencia entre ambas, sin embargo, es notable.</p>
+<ul>
+<li>La función de densidad discreta toma valores positivos únicamente en los puntos del recorrido y se interpreta como la probabilidad de la que la variable tome ese valor <span class="math inline">\(f(x)=P(X=x)\)</span>.</li>
+<li>La función de densidad continua toma valores en el conjunto de números reales y no se interpreta como una probabilidad. No está acotada por 1, puede tomar cualquier valor positivo. Es más, en una variable continua se cumple que probabilidades definidas sobre puntos concretos siempre son nulas.</li>
+</ul>
+<p><span class="math display">\[
+P(X=x)=0 \text { para todo } x \text { real. }
+\]</span></p>
+<p>¿Cómo se interpreta, entonces, la función de densidad continua? Las probabilidades son las áreas bajo la función de densidad. El área bajo la función de densidad entre dos puntos a y b se interpreta como la probabilidad de que la variable aleatoria tome valores comprendidos entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>.</p>
+<p>Por tanto, siempre se cumple lo siguiente:</p>
+<p><span class="math display">\[
+\int_{-\infty}^{+\infty} f(x) d x=1
+\]</span></p>
+<p>La función de densidad se expresa a través de una función matemática. La forma específica de la función matemática generalmente pasa por considerar a la variable aleatoria como miembro de una determinada familia de distribuciones, un determinado modelo de probabilidad. Estas familias generalmente dependen de uno o más parámetros y serán objeto de un estudio específico en un capítulo posterior. La atribución a una determinada familia depende de la naturaleza de la variable en cuestión.</p>
+<p>Podemos ver, únicamente con ánimo ilustrativo, la expresión analítica y la gráfica para los ejemplos comentados con anterioridad:</p>
+<ul>
+<li>Resultado de un generador de números aleatorios entre <span class="math inline">\(\boldsymbol{a}\)</span> y <span class="math inline">\(\boldsymbol{b}\)</span>. Modelo Uniforme. <span class="math inline">\(f(x)=\left\{\begin{array}{cc}\frac{1}{b-a} &amp; x \in[a, b] \\ 0 &amp; x \notin[a, b]\end{array}\right\}\)</span></li>
+<li>Estatura de una persona elegida al azar en una población. Modelo Normal.</li>
+</ul>
+<p><span class="math display">\[
+f(x)=\frac{1}{\sqrt{2 \pi}} e^{\frac{-(x-170)^{2}}{2}}-\infty&lt;x&lt;\infty
+\]</span></p>
+</section>
+<section id="relaciones-entre-la-función-de-distribución-y-la-función-de-densidad." class="level3" data-number="2.7.3">
+<h3 data-number="2.7.3" class="anchored" data-anchor-id="relaciones-entre-la-función-de-distribución-y-la-función-de-densidad."><span class="header-section-number">2.7.3</span> Relaciones entre la función de distribución y la función de densidad.</h3>
+<p>Para una variable continua, la relación entre las funciones de distribución y de densidad viene dada directamente a través de la definición. La función de distribución en un punto se obtiene integrando el valor de la función de densidad desde menos infinito hasta el punto en cuestión. Por ejemplo:</p>
+<p><span class="math display">\[
+F(x)=\int_{-\infty}^{x} f(t) d t
+\]</span></p>
+<section id="probabilidad-de-intervalos" class="level4" data-number="2.7.3.1">
+<h4 data-number="2.7.3.1" class="anchored" data-anchor-id="probabilidad-de-intervalos"><span class="header-section-number">2.7.3.1</span> Probabilidad de intervalos</h4>
+<p>A partir de las funciones de densidad y de distribución, y teniendo en cuenta que <span class="math inline">\(P(X=x)=0\)</span> para todo <span class="math inline">\(x\)</span> real, es posible expresar las probabilidades para cualquier posible intervalo de valores de la variable. Por ejemplo:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Intervalo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P(X \leq a)=P(X&lt;a)=F(a)=\int_{-\infty}^{a} f(x) d x\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(P(X \geq a)=P(X&gt;a)=1-F(a)=\int_{a}^{+\infty} f(x) d x\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P(a&lt;X \leq b)=P(a&lt;X&lt;b)=P(a \leq X \leq b)=P(a \leq X&lt;b)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(=F(b)-F(a)=\int^{b} f(x) d x\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Fijémonos que la probabilidad de los intervalos se corresponde con el área bajo la función de densidad dentro del intervalo considerado. <img src="https://cdn.mathpix.com/cropped/2024_09_12_f7af3f47a4aa56dad47ag-19.jpg?height=2339&amp;width=1236&amp;top_left_y=92&amp;top_left_x=409" class="img-fluid"></p>
+</section>
+</section>
+</section>
+<section id="independencia-de-variables-aleatorias" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="independencia-de-variables-aleatorias"><span class="header-section-number">2.8</span> Independencia de variables aleatorias</h2>
+<p>De manera intuitiva podemos decir que dos variables aleatorias son independientes si los valores que toma una de ellas no afectan a los de la otra ni a sus probabilidades.</p>
+<p>En muchas ocasiones la independencia será evidente a partir del experimento, por ejemplo, es independiente el resultado del lanzamiento de un dado y el de una moneda, por tanto las variables Puntuación obtenida con el dado y Número de caras obtenidas al lanzar la moneda una vez serán variables independientes.</p>
+<p>En otras ocasiones tenemos una dependencia clara, por ejemplo, al lanzar un dado consideremos las variables <span class="math inline">\(X=\)</span> puntuación del dado <span class="math inline">\(Y=\)</span> variable indicadora de puntuación par Es evidente que existe una clara dependencia, si sabemos que <span class="math inline">\(Y=1\)</span>, la variable <span class="math inline">\(X\)</span> sólo puede tomar los valores 2 , 4 o 6 ; si sabemos que <span class="math inline">\(X=3\)</span>, entonces, <span class="math inline">\(Y=0\)</span> forzosamente.</p>
+<p>Algunas veces podemos suponer la existencia de una cierta relación entre variables, aunque sea en forma algo abstracta y sin concretar. Por ejemplo si realizamos unas mediciones sobre unos individuos, las variables altura en cm y peso en Kg probablemente estarán relacionadas, los valores de una influirán en los valores de la otra. Intentar determinar la naturaleza exacta de la relación entre ambas es lo que en estadística conocemos como un problema de regresión.</p>
+<p>Si queremos una definición algo más formal, basta con que recordemos que dos sucesos son independientes si la probabilidad de la intersección es igual al producto de probabilidades, aplicando esta definición a sucesos del tipo <span class="math inline">\(X \leq a\)</span> tenemos la definición siguiente:</p>
+<section id="caracterización-de-la-independencia" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="caracterización-de-la-independencia"><span class="header-section-number">2.8.1</span> Caracterización de la independencia</h3>
+<p>Diremos que dos variables aleatorias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes si y sólo si</p>
+<p><span class="math display">\[
+P(X \leq a \cap Y \leq b)=P(X \leq a) \cdot P(Y \leq b)=F_{X}(a) \cdot F_{Y}(b)
+\]</span></p>
+<p>A la función <span class="math inline">\(F(x, y)=P(X \leq a \cap Y \leq b)\)</span> se la conoce como la función de distribución conjunta de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>. Como consecuencia inmediata de la independencia de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, se cumple lo siguiente:</p>
+<p><span class="math display">\[
+P(a&lt;X \leq c \cap b&lt;Y \leq d)=P(a&lt;X \leq c) \cdot P(b&lt;Y \leq d)
+\]</span></p>
+</section>
+</section>
+<section id="caracterización-de-una-variable-aleatoria-a-través-de-parámetros" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="caracterización-de-una-variable-aleatoria-a-través-de-parámetros"><span class="header-section-number">2.9</span> Caracterización de una variable aleatoria a través de parámetros</h2>
+<p>Hasta el momento hemos visto que toda variable aleatoria viene caracterizada a través de unas determinadas funciones matemáticas, las funciones de distribución y de densidad. Una vez caracterizada, y por tanto conocida, la distribución de una variable aleatoria, podemos obtener cualquier probabilidad asociada.</p>
+<p>En ocasiones podemos acotar más el problema y reducir el estudio de una variable aleatoria a determinar una serie de características numéricas asociadas con la distribución de la variable. Dichas características tienen como propiedad fundamental el hecho de resumir gran parte de las propiedades de la variable aleatoria y juegan un papel muy destacado en las técnicas estadísticas que desarrollaremos a lo largo del curso.</p>
+<p>Por ejemplo, supuesta la pertenencia de una variable aleatoria a una determinada familia de distribuciones de probabilidad, bien sea discreta o continua, los diferentes miembros de la familia diferirán en el valor de esas características numéricas. En este caso, denominaremos a tales características los parámetros de la distribución.</p>
+<p>Existe un buen número de tales características, pero nos centraremos en las dos más importantes: la esperanza y la varianza. La primera nos informa sobre la localización de los valores de la variable y la segunda, sobre el grado de dispersión de estos valores.</p>
+</section>
+<section id="esperanza-de-una-variable-aleatoria-discreta" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="esperanza-de-una-variable-aleatoria-discreta"><span class="header-section-number">2.10</span> Esperanza de una variable aleatoria discreta</h2>
+<p>La esperanza matemática de una variable aleatoria es una característica numérica que proporciona una idea de la localización de la variable aleatoria sobre la recta real. Decimos que es un parámetro de centralización o de localización.</p>
+<p>Su interpretación intuitiva o significado se corresponde con el valor medio teórico de los posibles valores que pueda tomar la variable aleatoria, o también con el centro de gravedad de los valores de la variable supuesto que cada valor tuviera una masa proporcional a la función de densidad en ellos.</p>
+<p>La definición matemática de la esperanza en el caso de las variables aleatorias discretas se corresponde directamente con las interpretaciones proporcionadas en el párrafo anterior. Efectivamente, supuesta una variable aleatoria discreta <span class="math inline">\(X\)</span> con recorrido <span class="math inline">\(\left\{x_{1}, x_{2}, \ldots, x_{k}, \ldots\right\}\)</span> y con función de densidad <span class="math inline">\(f(x)\)</span>, se define la esperanza matemática de <span class="math inline">\(X\)</span> como el valor</p>
+<p><span class="math display">\[
+E(X)=\sum_{x_{i} \in X(\Omega)} x_{i} f\left(x_{i}\right)
+\]</span></p>
+<p>donde el sumatorio se efectúa para todo valor que pertenece al recorrido de <span class="math inline">\(X\)</span>. En caso de que el recorrido sea infinito la esperanza existe si la serie resultante es absolutamente convergente, condición que no siempre se cumple.</p>
+<p>La definición se corresponde con un promedio ponderado según su probabilidad de los valores del recorrido y, por tanto, se corresponde con la idea de un valor medio teórico.</p>
+</section>
+<section id="esperanza-de-una-variable-aleatoria-continua" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="esperanza-de-una-variable-aleatoria-continua"><span class="header-section-number">2.11</span> Esperanza de una variable aleatoria continua</h2>
+<p>La idea intuitiva que más nos puede ayudar en la definición de la esperanza matemática de una variable aleatoria continua es la idea del centro de gravedad de los valores de la variable, donde cada valor tiene una masa proporcional a la función de densidad en ellos.</p>
+<p>Dada una variable aleatoria absolutamente continua <span class="math inline">\(X\)</span> con función de densidad <span class="math inline">\(f(x)\)</span>, se define la esperanza matemática de <span class="math inline">\(X\)</span> como el valor</p>
+<p><span class="math display">\[
+E(X)=\int_{-\infty}^{+\infty} x f(x) d x
+\]</span></p>
+<p>suponiendo que la integral exista.</p>
+</section>
+<section id="propiedades-de-la-esperanza-matemática" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="propiedades-de-la-esperanza-matemática"><span class="header-section-number">2.12</span> Propiedades de la esperanza matemática</h2>
+<ol type="1">
+<li>Esperanza de una función de una variable aleatoria</li>
+</ol>
+<ul>
+<li>Variable discreta</li>
+</ul>
+<p><span class="math display">\[
+E(h(X))=\sum_{x_{i} \in X(\Omega)} h\left(x_{i}\right) f\left(x_{i}\right)
+\]</span></p>
+<ul>
+<li>Variable continua</li>
+</ul>
+<p><span class="math display">\[
+E(h(X))=\int_{-\infty}^{+\infty} h(x) f(x) d x
+\]</span></p>
+<section id="linealidad-de-la-esperanza-matemática" class="level3" data-number="2.12.1">
+<h3 data-number="2.12.1" class="anchored" data-anchor-id="linealidad-de-la-esperanza-matemática"><span class="header-section-number">2.12.1</span> Linealidad de la esperanza matemática</h3>
+<ul>
+<li><span class="math inline">\(E(X+Y)=E(X)+E(Y)\)</span></li>
+<li><span class="math inline">\(E(k \cdot X)=k \cdot E(X)\)</span> para todo número real <span class="math inline">\(k\)</span>.</li>
+<li><span class="math inline">\(E(k)=k\)</span> para todo número real <span class="math inline">\(k\)</span>.</li>
+</ul>
+<p>○ <span class="math inline">\(E(a \cdot X+b)=a \cdot E(X)+b\)</span> para todo par de números reales <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>.</p>
+</section>
+<section id="esperanza-del-producto" class="level3" data-number="2.12.2">
+<h3 data-number="2.12.2" class="anchored" data-anchor-id="esperanza-del-producto"><span class="header-section-number">2.12.2</span> Esperanza del producto</h3>
+<ul>
+<li><span class="math inline">\(E(X \cdot Y)=E(X) \cdot E(Y)\)</span> únicamente en el caso de que <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> sean variables aleatorias independientes.</li>
+</ul>
+</section>
+</section>
+<section id="varianza-de-una-variable-aleatoria" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="varianza-de-una-variable-aleatoria"><span class="header-section-number">2.13</span> Varianza de una variable aleatoria</h2>
+<p>La varianza de una variable aleatoria es una característica numérica que proporciona una idea de la dispersión de la variable aleatoria respecto de su esperanza. Decimos que es un parámetro de dispersión.</p>
+<p>La definición es la siguiente:</p>
+<p><span class="math display">\[
+\operatorname{Var}(X)=E\left((X-E(X))^{2}\right)
+\]</span></p>
+<p>Es, por tanto, el promedio teórico de las desviaciones cuadráticas de los diferentes valores que puede tomar la variable respecto de su valor medio teórico o esperanza.</p>
+<p>En el caso de las variables discretas, la expresión se convierte en:</p>
+<p><span class="math display">\[
+\operatorname{Var}(X)=\sum_{x_{i} \in X(\Omega)}\left(x_{i}-E(X)\right)^{2} f\left(x_{i}\right)
+\]</span></p>
+<p>mientras que para las variables continuas tenemos:</p>
+<p><span class="math display">\[
+\operatorname{Var}(X)=\int_{-\infty}^{+\infty}(x-E(X))^{2} f(x) d x
+\]</span></p>
+<p>En ambos casos existe una expresión equivalente alternativa y generalmente de cálculo más fácil:</p>
+<p><span class="math display">\[
+\operatorname{Var}(X)=E\left(X^{2}\right)-(E(X))^{2}
+\]</span></p>
+<p>Una de las características de la varianza es que viene expresada en unidades cuadráticas respecto de las unidades originales de la variable. Un parámetro de dispersión derivado de la varianza y que tiene las mismas unidades de la variable aleatoria es la desviación típica, que se define como la raíz cuadrada de la varianza.</p>
+<p><span class="math display">\[
+\sigma_{X}=\sqrt{\operatorname{Var}(X)}=\sqrt{E\left((X-E(X))^{2}\right)}
+\]</span></p>
+<section id="propiedades-de-la-varianza" class="level3" data-number="2.13.1">
+<h3 data-number="2.13.1" class="anchored" data-anchor-id="propiedades-de-la-varianza"><span class="header-section-number">2.13.1</span> Propiedades de la varianza</h3>
+<ol type="1">
+<li><span class="math inline">\(\operatorname{Var}(X) \geq 0\)</span></li>
+<li><span class="math inline">\(\operatorname{Var}(k \cdot X)=k^{2} \cdot \operatorname{Var}(X)\)</span> para todo numero real <span class="math inline">\(k\)</span>.</li>
+<li><span class="math inline">\(\operatorname{Var}(k)=0\)</span> para todo numero real <span class="math inline">\(k\)</span>.</li>
+<li><span class="math inline">\(\operatorname{Var}(a \cdot X+b)=a^{2} \cdot \operatorname{Var}(X)\)</span> para todo par de números reales <span class="math inline">\(a\)</span> i <span class="math inline">\(b\)</span>.</li>
+<li><span class="math inline">\(\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)\)</span> únicamente en el caso que <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> sean independientes.</li>
+</ol>
+</section>
+</section>
+<section id="momentos-de-orden-k-de-una-variable-aleatoria" class="level2" data-number="2.14">
+<h2 data-number="2.14" class="anchored" data-anchor-id="momentos-de-orden-k-de-una-variable-aleatoria"><span class="header-section-number">2.14</span> Momentos (de orden <span class="math inline">\(k\)</span>) de una variable aleatoria</h2>
+<ul>
+<li>Dada una variable aleatoria <span class="math inline">\(X\)</span>, definimos el momento de orden <span class="math inline">\(k\)</span> como:</li>
+</ul>
+<p><span class="math display">\[
+m_{k}=E\left(X^{k}\right)
+\]</span></p>
+<p>suponiendo que tal esperanza exista. Podemos ver que la esperanza es el momento de orden <span class="math inline">\(1, E(X)=m_{1}\)</span>.</p>
+<ul>
+<li>Definimos el momento central de orden <span class="math inline">\(k\)</span> como:</li>
+</ul>
+<p><span class="math display">\[
+\mu_{k}=E\left((X-E(X))^{k}\right)
+\]</span></p>
+<p>Con la denominación anterior, la varianza es el momento central de orden <span class="math inline">\(2, \operatorname{Var}(X)=\mu_{2}\)</span>.</p>
+<ul>
+<li>Es posible también definir momentos mixtos de dos variables aleatorias. Dadas dos variables aleatorias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> definimos el momento mixto de orden <span class="math inline">\((r, k)\)</span> como</li>
+</ul>
+<p><span class="math display">\[
+m_{r k}=E\left(X^{r} \cdot Y^{k}\right)
+\]</span></p>
+<p>y el momento mixto central de orden <span class="math inline">\((r, k)\)</span> como</p>
+<p><span class="math display">\[
+\left.\mu_{r k}=E(X-E(X))^{r} \cdot(Y-E(Y))^{k}\right)
+\]</span></p>
+<ul>
+<li>El momento mixto central más importante es el <span class="math inline">\(\mu_{11}\)</span>, denominado la covarianza de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, y con una interpretación en el sentido de cuantificar el grado de dependencia entre dos variables aleatorias, puesto que si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes se verifica que <span class="math inline">\(\mu_{11}=0\)</span>, mientras que si <span class="math inline">\(\mu_{11} \neq 0\)</span> entonces las variables son dependientes.</li>
+</ul>
+</section>
+<section id="definición-formal-de-variable-aleatoria" class="level2" data-number="2.15">
+<h2 data-number="2.15" class="anchored" data-anchor-id="definición-formal-de-variable-aleatoria"><span class="header-section-number">2.15</span> Definición formal de variable aleatoria</h2>
+<p>Tal como hemos comentado, la definición formal de variable aleatoria impone una restricción matemática en la formulación vista hasta el momento.</p>
+<p>Definiremos una variable aleatoria como una aplicación de <span class="math inline">\(\Omega\)</span> en el conjunto de números reales</p>
+<p><span class="math display">\[
+\begin{aligned}
+X: \Omega &amp; \rightarrow \mathbb{R} \\
+\omega &amp; \rightarrow X(\omega)
+\end{aligned}
+\]</span> que verifique la propiedad siguiente</p>
+<p><span class="math display">\[
+\forall x \in \mathbb{R} \quad \text { el conjunto } \mathrm{A}=\{a \mid \mathrm{X}(a) \leq \mathrm{x}\} \text { es un suceso observable }
+\]</span></p>
+<p>es decir, para todo número real <span class="math inline">\(x\)</span>, el conjunto de resultados elementales tales que la variable aleatoria toma sobre ellos valores inferiores o iguales a <span class="math inline">\(x\)</span> ha de ser un suceso sobre el cual podamos definir una probabilidad.</p>
+<p>Dicha propiedad recibe el nombre de medibilidad y por tanto podríamos decir que una variable aleatoria es una función medible de <span class="math inline">\(\Omega\)</span> en los reales.</p>
+<p>Esta condición nos asegura que podremos calcular sin problemas, probabilidades sobre intervalos de la recta real a partir de las probabilidades de los sucesos correspondientes.</p>
+<p><span class="math display">\[
+P(X \leq x)=P\{\omega \mid X(\omega) \leq x\}
+\]</span></p>
+<p>La expresión anterior se leería de la manera siguiente: La probabilidad de que la variable aleatoria tome valores inferiores o iguales a <span class="math inline">\(x\)</span> es igual a la probabilidad del suceso formado por el conjunto de resultados elementales sobre los que el valor de la variable es menor o igual que <span class="math inline">\(x\)</span>.</p>
+<p>La probabilidad obtenida de esta manera se denomina probabilidad inducida. Se puede comprobar que, a partir de la condición requerida, se pueden obtener probabilidades sobre cualquier tipo de intervalo de la recta real. Por ejemplo:</p>
+<p><span class="math display">\[
+P(a&lt;X \leq b)=P(X \leq b)-P(X \leq a)
+\]</span></p>
+<p>La condición exigida para ser variable aleatoria discreta ahora puede ser expresada como:</p>
+<p><span class="math display">\[
+\forall k=1,2, \ldots \text { el conjunto } \mathrm{A}=\left\{\omega \mid \mathrm{X}(\omega)=\mathrm{x}_{\mathrm{k}}\right\}=\mathrm{X}^{-1}\left(\left\{\mathrm{x}_{\mathrm{k}}\right\}\right) \text { es un suceso observable }
+\]</span></p>
+<p>Toda variable aleatoria definida sobre un espacio de probabilidad finito es necesariamente discreta. La suma y el producto de variables aleatorias discretas, definido por:</p>
+<p><span class="math display">\[
+(X+Y)(w)=X(w)+Y(w) \text { y }(X \cdot Y)(w)=X(w) \cdot Y(w)
+\]</span></p>
+<p>es también una variable aleatoria discreta.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./01-probabilidad.html" class="pagination-link" aria-label="Probabilidad y Experimentos aleatorios">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Probabilidad y Experimentos aleatorios</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03-distribucionesNotables.html" class="pagination-link" aria-label="Distribuciones Notables">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Distribuciones Notables</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
