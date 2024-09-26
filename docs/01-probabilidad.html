@@ -261,40 +261,62 @@ window.Quarto = {
 <h2 data-number="1.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">1.1</span> Introducción</h2>
 <section id="fenómenos-deterministas-y-fenómenos-aleatorios" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="fenómenos-deterministas-y-fenómenos-aleatorios"><span class="header-section-number">1.1.1</span> Fenómenos deterministas y fenómenos aleatorios</h3>
-<p>Supongamos que disponemos de un dado regular con todas las caras pintadas de blanco y con un número, que irá de 1 a <span class="math inline">\(6 \sin\)</span> repetir ninguno, en cada una de las seis caras.</p>
-<p>Definamos los dos experimentos siguientes: Experimento 1: Tirar el dado y anotar el color de la cara resultante. Experimento 2: Tirar el dado y anotar el número de la cara resultante. ¿Qué diferencia fundamental observamos entre ambos experimentos? Muy simple! En el experimento 1, el resultado es obvio: saldrá una cara de color blanco. Es decir, es posible predecir el resultado. Se trata de un experimento o fenómeno determinista.</p>
-<p>En cambio, en el experimento 2 no podemos predecir cuál será el valor resultante. El resultado puede ser : <span class="math inline">\(1,2,3,4,5\)</span> o 6 . Se trata de un experimento o fenómeno aleatorio.</p>
-<p>El conjunto de resultados se anotará con el símbolo: <span class="math inline">\(\Omega\)</span>. En este caso, <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span>. En los fenómenos aleatorios, al hacer muchas veces la experiencia, la frecuencia relativa de cualquier elemento del conjunto de resultados debe aproximarse siempre hacia un mismo valor.</p>
+<p>Supongamos que disponemos de un dado regular con todas las caras pintadas de blanco y con un número, que irá de 1 a <span class="math inline">\(6\)</span> sin repetir ninguno, en cada una de las seis caras.</p>
+<p>Definamos los dos experimentos siguientes:</p>
+<ul>
+<li>Experimento 1: Tirar el dado y anotar el color de la cara resultante.</li>
+<li>Experimento 2: Tirar el dado y anotar el número de la cara resultante.</li>
+</ul>
+<p>¿Qué diferencia fundamental observamos entre ambos experimentos?</p>
+<p>Muy simple! En el experimento 1, el resultado es obvio: <em>saldrá una cara de color blanco</em>. Es decir, es posible predecir el resultado. Se trata de un <strong>experimento o fenómeno determinista</strong>.</p>
+<p>En cambio, en el experimento 2 no podemos predecir cuál será el valor resultante. El resultado puede ser : 1, 2, 3,4, 5 o 6. Se trata de un <strong>experimento o fenómeno aleatorio</strong>.</p>
+<p>El conjunto de resultados se anotará con el símbolo: <span class="math inline">\(\Omega\)</span>. En este caso, <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span>. En los fenómenos aleatorios, al repetir muchas veces la experiencia, la frecuencia relativa de cualquier elemento del conjunto de resultados debe aproximarse siempre hacia un mismo valor.</p>
 </section>
 <section id="sucesos" class="level3" data-number="1.1.2">
 <h3 data-number="1.1.2" class="anchored" data-anchor-id="sucesos"><span class="header-section-number">1.1.2</span> Sucesos</h3>
-<p>Supongamos que se ejecuta un experimento aleatorio. Se nos puede ocurrir emitir un enunciado que, una vez realizada la experiencia, pueda decirse si se ha verificado o no se ha verificado. A dichos enunciados los denominamos sucesos.</p>
-<p>Por otro lado, los sucesos van asociados a subconjuntos del conjunto de resultados. Cada suceso se corresponderá exactamente con uno, y sólo con un, subconjunto del conjunto de resultados.</p>
-<p>Veamos un ejemplo: Experimento: Tirar un dado regular. Conjunto de resultados : <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span> Enunciado: Obtener múltiplo de 3. Subconjunto al que se asocia el enunciado: <span class="math inline">\(A=\{3,6\}\)</span> Nos referiremos habitualmente al suceso A.</p>
+<p>Supongamos que se ejecuta un experimento aleatorio. Una forma de caracterizarlos consiste en proporcionar un “enunciado” del que, una vez realizada la experiencia, pueda decirse si se ha verificado o no se ha verificado.</p>
+<p>A dichos enunciados los denominamos <strong>sucesos</strong>.</p>
+<p>Los sucesos pueden describirse o caracterizarse como subconjuntos del conjunto de resultados. Cada suceso se corresponderá exactamente con uno, y sólo con un, subconjunto del conjunto de resultados.</p>
+<p>Veamos un ejemplo:</p>
+<ul>
+<li>Experimento: Tirar un dado regular.</li>
+<li>Conjunto de resultados : <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span></li>
+<li>Enunciado: Obtener múltiplo de 3.</li>
+<li>Subconjunto al que se asocia el enunciado: <span class="math inline">\(A=\{3,6\}\)</span></li>
+</ul>
+<p>En este caso hablaremos de si se ha presentado o no el suceso <span class="math inline">\(A\)</span>.</p>
 <section id="sucesos-y-conjuntos" class="level4" data-number="1.1.2.1">
 <h4 data-number="1.1.2.1" class="anchored" data-anchor-id="sucesos-y-conjuntos"><span class="header-section-number">1.1.2.1</span> Sucesos y conjuntos</h4>
-<p>Al conjunto de resultados <span class="math inline">\(\Omega\)</span>, se le denomina suceso seguro. Al conjunto Ø ( conjunto sin elementos), se le denomina suceso imposible. Al complementario del conjunto <span class="math inline">\(\mathrm{A}\left(\mathrm{A}^{\mathrm{c}}\right)\)</span>, se le denomina suceso contrario o complementario de <span class="math inline">\(A\)</span>. A partir de dos sucesos A y B, podemos formar los sucesos siguientes:</p>
 <ul>
-<li>A intersección B, que anotaremos como:</li>
+<li><p>Al conjunto de resultados <span class="math inline">\(\Omega\)</span>, se le denomina <strong>suceso seguro</strong>.</p></li>
+<li><p>Al conjunto <span class="math inline">\(\emptyset\)</span> ( conjunto sin elementos), se le denomina <strong>suceso imposible</strong>.</p></li>
+<li><p>Al complementario del conjunto <span class="math inline">\(\mathrm{A}\left(\mathrm{A}^{\mathrm{c}}\right)\)</span>, se le denomina suceso contrario o complementario de <span class="math inline">\(A\)</span>.</p></li>
+</ul>
+<p>A partir de dos sucesos A y B, podemos formar los sucesos siguientes:</p>
+<ul>
+<li>Intersección de A con B, que anotaremos como:</li>
 </ul>
 <p><span class="math display">\[
 A \cap B
 \]</span></p>
 <ul>
-<li>A unión B, que anotaremos como:</li>
+<li>Unión de A con B, que anotaremos como:</li>
 </ul>
 <p><span class="math display">\[
 A \cup B
 \]</span></p>
-<p>A intersección B, significa que se verifican a la vez A y B. A unión B, significa que se verifica <span class="math inline">\(A\)</span> o <span class="math inline">\(B\)</span> ( se pueden verificar a la vez).</p>
+<ul>
+<li>A intersección B, significa que se verifican a la vez A y B.</li>
+<li>A unión B, significa que se verifica <span class="math inline">\(A\)</span> o <span class="math inline">\(B\)</span> ( se pueden verificar a la vez).</li>
+</ul>
 </section>
 </section>
 </section>
 <section id="función-de-probabilidad" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="función-de-probabilidad"><span class="header-section-number">1.2</span> Función de probabilidad</h2>
-<p>Lógicamente, una vez tenemos un suceso, nos preocupa saber si hay muchas o pocas posibilidades de que al realizar la experiencia se haya verificado.</p>
+<p>Lógicamente, una vez tenemos un suceso, nos interesa saber si hay muchas o pocas posibilidades de que, tras realizar la experiencia se haya verificado (también podríamos decir que nos interesa decidir cuan posible es que se presente antes de realizar el experimento)</p>
 <p>Por lo tanto, sería interesante el tener alguna función que midiera el grado de confianza a depositar en que se verifique el suceso.</p>
-<p>A esta función la denominaremos función de probabilidad. La función de probabilidad será, pues, una aplicación entre el conjunto de resultados y el conjunto de números reales, que asignará a cada suceso la probabilidad de que se verifique.</p>
+<p>A esta función la denominaremos <strong>función de probabilidad</strong>. La función de probabilidad será, pues, una aplicación entre el conjunto de resultados y el conjunto de números reales, que asignará a cada suceso la probabilidad de que se verifique.</p>
 <p>La notación: <span class="math inline">\(\mathrm{P}(\mathrm{A})\)</span> significará: probabilidad de que se verifique el suceso A . Pero claro, de funciones de probabilidad asociadas a priori a una experiencia aleatoria podrían haber muchas.</p>
 <p>Lo que se hace para decir qué es y qué no es una función de probabilidad es construir una serie de propiedades (denominadas axiomas) que se exigirán a una función para poder ser catalogada como función de probabilidad.</p>
 <p>Y, ¿cuáles son estos axiomas? Pues los siguientes: Sea S el conjunto de sucesos. Axioma 1: Para cualquier suceso A, la probabilidad debe ser mayor o igual que 0 . Axioma 2: <span class="math inline">\(\mathrm{P}(\Omega)=1\)</span> Axioma 3: Para sucesos <span class="math inline">\(\mathrm{A}_{\mathrm{i}}\)</span>, de modo que cada par de sucesos no tengan ningún resultado común, se verifica que:</p>

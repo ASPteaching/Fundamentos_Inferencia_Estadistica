@@ -5,78 +5,84 @@
 
 ### Fenómenos deterministas y fenómenos aleatorios
 
-Supongamos que disponemos de un dado regular con todas las caras
-pintadas de blanco y con un número, que irá de 1 a $6 \sin$ repetir
+Supongamos que disponemos de un dado regular con todas las caras pintadas de blanco y con un número, que irá de 1 a $6$ sin repetir
 ninguno, en cada una de las seis caras.
 
-Definamos los dos experimentos siguientes: Experimento 1: Tirar el dado
-y anotar el color de la cara resultante. Experimento 2: Tirar el dado y
-anotar el número de la cara resultante. ¿Qué diferencia fundamental
-observamos entre ambos experimentos? Muy simple! En el experimento 1, el
-resultado es obvio: saldrá una cara de color blanco. Es decir, es
-posible predecir el resultado. Se trata de un experimento o fenómeno
-determinista.
+Definamos los dos experimentos siguientes: 
 
-En cambio, en el experimento 2 no podemos predecir cuál será el valor
-resultante. El resultado puede ser : $1,2,3,4,5$ o 6 . Se trata de un
-experimento o fenómeno aleatorio.
+- Experimento 1: Tirar el dado y anotar el color de la cara resultante. 
+- Experimento 2: Tirar el dado y anotar el número de la cara resultante. 
+
+¿Qué diferencia fundamental
+observamos entre ambos experimentos? 
+
+Muy simple! En el experimento 1, el
+resultado es obvio: _saldrá una cara de color blanco_. Es decir, es posible predecir el resultado. Se trata de un __experimento o fenómeno determinista__.
+
+En cambio, en el experimento 2 no podemos predecir cuál será el valor resultante. El resultado puede ser : 1, 2, 3,4, 5 o 6. Se trata de un
+__experimento o fenómeno aleatorio__.
 
 El conjunto de resultados se anotará con el símbolo: $\Omega$. En este
-caso, $\Omega=\{1,2,3,4,5,6\}$. En los fenómenos aleatorios, al hacer
-muchas veces la experiencia, la frecuencia relativa de cualquier
-elemento del conjunto de resultados debe aproximarse siempre hacia un
+caso, $\Omega=\{1,2,3,4,5,6\}$. En los fenómenos aleatorios, al repetir 
+muchas veces la experiencia, la frecuencia relativa de cualquier elemento del conjunto de resultados debe aproximarse siempre hacia un
 mismo valor.
 
 ### Sucesos
 
-Supongamos que se ejecuta un experimento aleatorio. Se nos puede ocurrir
-emitir un enunciado que, una vez realizada la experiencia, pueda decirse
-si se ha verificado o no se ha verificado. A dichos enunciados los
-denominamos sucesos.
+Supongamos que se ejecuta un experimento aleatorio. Una forma de caracterizarlos consiste en proporcionar un "enunciado" del que, una vez realizada la experiencia, pueda decirse si se ha verificado o no se ha verificado. 
 
-Por otro lado, los sucesos van asociados a subconjuntos del conjunto de
-resultados. Cada suceso se corresponderá exactamente con uno, y sólo con
+A dichos enunciados los
+denominamos __sucesos__.
+
+Los sucesos pueden describirse o caracterizarse como subconjuntos del conjunto de resultados. Cada suceso se corresponderá exactamente con uno, y sólo con
 un, subconjunto del conjunto de resultados.
 
-Veamos un ejemplo: Experimento: Tirar un dado regular. Conjunto de
-resultados : $\Omega=\{1,2,3,4,5,6\}$ Enunciado: Obtener múltiplo de 3.
-Subconjunto al que se asocia el enunciado: $A=\{3,6\}$ Nos referiremos
-habitualmente al suceso A.
+Veamos un ejemplo: 
+
+- Experimento: Tirar un dado regular. 
+- Conjunto de resultados : $\Omega=\{1,2,3,4,5,6\}$ 
+- Enunciado: Obtener múltiplo de 3.
+- Subconjunto al que se asocia el enunciado: $A=\{3,6\}$ 
+
+En este caso hablaremos de si se ha presentado o no el suceso $A$.
 
 #### Sucesos y conjuntos
 
-Al conjunto de resultados $\Omega$, se le denomina suceso seguro. Al
-conjunto Ø ( conjunto sin elementos), se le denomina suceso imposible.
-Al complementario del conjunto
+- Al conjunto de resultados $\Omega$, se le denomina __suceso seguro__. 
+
+- Al
+conjunto $\emptyset$ ( conjunto sin elementos), se le denomina __suceso imposible__.
+
+- Al complementario del conjunto
 $\mathrm{A}\left(\mathrm{A}^{\mathrm{c}}\right)$, se le denomina suceso
-contrario o complementario de $A$. A partir de dos sucesos A y B,
+contrario o complementario de $A$. 
+
+A partir de dos sucesos A y B,
 podemos formar los sucesos siguientes:
 
--   A intersección B, que anotaremos como:
+-   Intersección de A con B, que anotaremos como:
 
 $$
 A \cap B
 $$
 
--   A unión B, que anotaremos como:
+-   Unión de A con B, que anotaremos como:
 
 $$
 A \cup B
 $$
 
-A intersección B, significa que se verifican a la vez A y B. A unión B,
-significa que se verifica $A$ o $B$ ( se pueden verificar a la vez).
+- A intersección B, significa que se verifican a la vez A y B. 
+- A unión B, significa que se verifica $A$ o $B$ ( se pueden verificar a la vez).
 
 ## Función de probabilidad
 
-Lógicamente, una vez tenemos un suceso, nos preocupa saber si hay muchas
-o pocas posibilidades de que al realizar la experiencia se haya
-verificado.
+Lógicamente, una vez tenemos un suceso, nos interesa saber si hay muchas o pocas posibilidades de que, tras realizar la experiencia se haya verificado (también podríamos decir que nos interesa decidir cuan posible es que se presente antes de realizar el experimento)
 
 Por lo tanto, sería interesante el tener alguna función que midiera el
 grado de confianza a depositar en que se verifique el suceso.
 
-A esta función la denominaremos función de probabilidad. La función de
+A esta función la denominaremos __función de probabilidad__. La función de
 probabilidad será, pues, una aplicación entre el conjunto de resultados
 y el conjunto de números reales, que asignará a cada suceso la
 probabilidad de que se verifique.
