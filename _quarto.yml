@@ -6,7 +6,7 @@ book:
   title: "Fundamentos de Inferencia Estadistica"
   author: "Alex Sanchez Pla y Santiago Pérez Hoyos"
   search: true
-  repo-url: https://github.com/ASPteaching/FundamentosInferencia/
+  repo-url: https://github.com/ASPteaching/Fundamentos_Inferencia_Estadistica/
   downloads: [pdf]
   sidebar:
     style: "docked"
