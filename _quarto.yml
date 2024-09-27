@@ -1,0 +1,75 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Fundamentos de Inferencia Estadistica"
+  author: "Alex Sanchez Pla y Santiago Pérez Hoyos"
+  search: true
+  repo-url: https://github.com/ASPteaching/Fundamentos_Inferencia_Estadistica/
+  downloads: [pdf]
+  sidebar:
+    style: "docked"
+    background: light
+    contents:
+      - text: "Presentación"
+        href: index.qmd
+      - text: "Probabilidad"
+        href: 01-probabilidad.Rmd
+      - text: "Variables aleatorias"
+        href: 02-variablesAleatorias.Rmd
+      - text: "Distribuciones notables"
+        href: 03-distribucionesNotables.Rmd
+      - text: "Grandes muestras"
+        href: 04-grandesMuestras.Rmd
+      - text: "Distribuciones multidimensionales"
+        href: 05-vectoresAleatorios.Rmd
+      - text: "Inferencia y estimación"
+        href: 06-introInferencia.Rmd
+      - text: "Estimación por intervalos"
+        href: 07-estimacion.Rmd
+      - text: "Contrastes de hipótesis"
+        href: 08-pruebasHipotesis.Rmd
+      - text: "Aplicaciones"
+        href: 09-inferenciaAplicada.Rmd
+      - text: "Computación Intensiva"
+        href: 10-computerintensive.Rmd
+      - text: "Referencias"
+        href: referencias.qmd
+  
+  chapters:
+    - index.qmd
+    - 01-probabilidad.Rmd
+    - 02-variablesAleatorias.Rmd
+    - 03-distribucionesNotables.Rmd
+    - 04-grandesMuestras.Rmd
+    - 05-vectoresAleatorios.Rmd
+    - 06-introInferencia.Rmd
+    - 07-estimacion.Rmd
+    - 08-pruebasHipotesis.Rmd
+    - 09-inferenciaAplicada.Rmd
+    - 10-computerintensive.Rmd
+    - referencias.qmd
+  
+# bibliography: references.bib
+
+format:
+  html:
+    toc: true
+    toc-title: "Tabla de Contenidos"
+    toc-depth: 2
+    toc-location: right
+    theme: [cosmo]
+    css: blocks.css
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    number-sections: true
+    colorlinks: true
+    geometry:
+    - top=20mm
+    - left=15mm
+    papersize: A4
+
+
+
