@@ -203,8 +203,8 @@ $$
 
 ### Suceso implicado
 
-Si A es un suceso que está contenido en B (todos los resultados de A
-también pertenecen a B ), entonces:
+Decimos que un suceso, B, esta implicado por otro suceso A, si siempre que se presenta A, también lo hace B. Por ejemplo, si al tirar un dado se obtiene un dos (suceso A), ello implica que ha salido un número par (suceso B). En terminos de conjuntos, A es un suceso que está contenido en B (todos los resultados de A
+también pertenecen a B ), por lo que:
 
 $$
 \mathrm{P}(\mathrm{A}) \leq \mathrm{P}(\mathrm{B})
