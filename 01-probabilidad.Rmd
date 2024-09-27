@@ -199,10 +199,10 @@ experiencia en condiciones independientes.
 Veremos a continuación una serie de propiedades que se deducen de manera
 inmediata de la axiomática de la probabilidad.
 
-### Succeso nulo
+### Succeso imposible
 
-Probabilidad del suceso conjunto vacío (es decir del suceso que no
-contiene ningún resultado):
+Probabilidad del suceso imposible (es decir del suceso que no
+contiene ningún resultado, o conjunto vacío):
 
 $$
 P(\varnothing)=0
