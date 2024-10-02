@@ -228,7 +228,7 @@ $$
 P(A \cup B)=P(A)+P(B)-P(A \cap B)
 $$
 
-### Propiedad de que ocurra algun suceso
+### Probabilidad de que ocurra algun suceso
 
 Si tenemos una colección de $k$ sucesos, la probabilidad de la unión de
 dichos sucesos será:
@@ -239,9 +239,9 @@ $$
 
 ### Probabilidad de que ocurran dos (o más) sucesos a la vez
 
-### Una formula que los relaciona
+No existe una expresión cerrada única para la probabilidad de que ocurran dos o más sucesos a la vez, pues esto depende de si los sucesos que consideramos son dependientes o independientes, conceptos éstos, que introduciremos en la próxima sección.
 
-Se verifica que:
+Lo que si que existe es una cota para dicha probabilidad, es decir, podemos decir que valor alcanza dicha probabilidad, _como mínimo_.
 
 $$
 P\left(\bigcap_{i=1}^{n} A_{i}\right) \geq 1-\sum_{i=1}^{n} P\left(\bar{A}_{i}\right)
@@ -251,7 +251,7 @@ $$
 
 Imaginemos que en la experiencia de tirar un dado regular supiéramos de
 antemano que se ha obtenido un número par. Es decir, que se ha
-verificado el suceso: B = número par.
+verificado el suceso: $\{B = \mbox{número par}\}$".
 
 Pregunta: ¿Cuál es ahora la probabilidad de que se verifique el suceso
 mayor o igual a cuatro? Lógicamente, el resultado sería : $2 / 3$. Por

@@ -20,10 +20,10 @@ book:
         href: 02-variablesAleatorias.Rmd
       - text: "Distribuciones notables"
         href: 03-distribucionesNotables.Rmd
-      - text: "Grandes muestras"
-        href: 04-grandesMuestras.Rmd
       - text: "Distribuciones multidimensionales"
-        href: 05-vectoresAleatorios.Rmd
+        href: 04-vectoresAleatorios.Rmd
+      - text: "Grandes muestras"
+        href: 05-grandesMuestras.Rmd
       - text: "Inferencia y estimación"
         href: 06-introInferencia.Rmd
       - text: "Estimación por intervalos"
@@ -42,8 +42,8 @@ book:
     - 01-probabilidad.Rmd
     - 02-variablesAleatorias.Rmd
     - 03-distribucionesNotables.Rmd
-    - 04-grandesMuestras.Rmd
-    - 05-vectoresAleatorios.Rmd
+    - 04-vectoresAleatorios.Rmd
+    - 05-grandesMuestras.Rmd
     - 06-introInferencia.Rmd
     - 07-estimacion.Rmd
     - 08-pruebasHipotesis.Rmd

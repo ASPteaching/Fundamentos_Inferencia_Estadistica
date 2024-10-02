@@ -166,14 +166,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-grandesMuestras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Grandes muestras</span></span></a>
+  <a href="./04-vectoresAleatorios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Distribuciones de probabilidad multidimensionales</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-vectoresAleatorios.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distribuciones de probabilidad multidimensionales</span></span></a>
+  <a href="./05-grandesMuestras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Grandes muestras</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -367,8 +367,8 @@ P(\varnothing)=0
 P(A \cup B)=P(A)+P(B)-P(A \cap B)
 \]</span></p>
 </section>
-<section id="propiedad-de-que-ocurra-algun-suceso" class="level3" data-number="1.4.5">
-<h3 data-number="1.4.5" class="anchored" data-anchor-id="propiedad-de-que-ocurra-algun-suceso"><span class="header-section-number">1.4.5</span> Propiedad de que ocurra algun suceso</h3>
+<section id="probabilidad-de-que-ocurra-algun-suceso" class="level3" data-number="1.4.5">
+<h3 data-number="1.4.5" class="anchored" data-anchor-id="probabilidad-de-que-ocurra-algun-suceso"><span class="header-section-number">1.4.5</span> Probabilidad de que ocurra algun suceso</h3>
 <p>Si tenemos una colección de <span class="math inline">\(k\)</span> sucesos, la probabilidad de la unión de dichos sucesos será:</p>
 <p><span class="math display">\[
 P\left(\bigcup_{i=1}^{k} A_{i}\right)=\sum_{i=1}^{k} P\left(A_{i}\right)-\sum_{i&lt;j} P\left(A_{i} \cap A_{j}\right)+\sum P\left(A_{i} \cap A_{j} \cap A_{k}\right)+\ldots+(-1)^{k+1} \cdot P\left(A_{1} \cap . . \cap A_{k}\right)
@@ -376,10 +376,8 @@ P\left(\bigcup_{i=1}^{k} A_{i}\right)=\sum_{i=1}^{k} P\left(A_{i}\right)-\sum_{i
 </section>
 <section id="probabilidad-de-que-ocurran-dos-o-más-sucesos-a-la-vez" class="level3" data-number="1.4.6">
 <h3 data-number="1.4.6" class="anchored" data-anchor-id="probabilidad-de-que-ocurran-dos-o-más-sucesos-a-la-vez"><span class="header-section-number">1.4.6</span> Probabilidad de que ocurran dos (o más) sucesos a la vez</h3>
-</section>
-<section id="una-formula-que-los-relaciona" class="level3" data-number="1.4.7">
-<h3 data-number="1.4.7" class="anchored" data-anchor-id="una-formula-que-los-relaciona"><span class="header-section-number">1.4.7</span> Una formula que los relaciona</h3>
-<p>Se verifica que:</p>
+<p>No existe una expresión cerrada única para la probabilidad de que ocurran dos o más sucesos a la vez, pues esto depende de si los sucesos que consideramos son dependientes o independientes, conceptos éstos, que introduciremos en la próxima sección.</p>
+<p>Lo que si que existe es una cota para dicha probabilidad, es decir, podemos decir que valor alcanza dicha probabilidad, <em>como mínimo</em>.</p>
 <p><span class="math display">\[
 P\left(\bigcap_{i=1}^{n} A_{i}\right) \geq 1-\sum_{i=1}^{n} P\left(\bar{A}_{i}\right)
 \]</span></p>
@@ -387,7 +385,7 @@ P\left(\bigcap_{i=1}^{n} A_{i}\right) \geq 1-\sum_{i=1}^{n} P\left(\bar{A}_{i}\r
 </section>
 <section id="probabilidad-condicionada" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="probabilidad-condicionada"><span class="header-section-number">1.5</span> Probabilidad condicionada</h2>
-<p>Imaginemos que en la experiencia de tirar un dado regular supiéramos de antemano que se ha obtenido un número par. Es decir, que se ha verificado el suceso: B = número par.</p>
+<p>Imaginemos que en la experiencia de tirar un dado regular supiéramos de antemano que se ha obtenido un número par. Es decir, que se ha verificado el suceso: <span class="math inline">\(\{B = \mbox{número par}\}\)</span>“.</p>
 <p>Pregunta: ¿Cuál es ahora la probabilidad de que se verifique el suceso mayor o igual a cuatro? Lógicamente, el resultado sería : <span class="math inline">\(2 / 3\)</span>. Por lo tanto, la probabilidad del suceso <span class="math inline">\(\mathrm{A}=\)</span> mayor o igual a cuatro se ha modificado. Evidentemente, ha pasado de ser <span class="math inline">\(1 / 2\)</span> ( cuando no tenemos ninguna información previa) a ser <span class="math inline">\(2 / 3\)</span> (cuando sabemos que se ha verificado el suceso B). ¿Cómo podemos anotar esta última probabilidad <span class="math inline">\((2 / 3)\)</span> ? Muy sencillo. Anotaremos <span class="math inline">\(\mathrm{P}(\mathrm{A} / \mathrm{B})\)</span>, que se lee como probabilidad de A condicionada a B . Así, en este ejemplo,</p>
 <p><span class="math display">\[
 \begin{gathered}
