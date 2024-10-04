@@ -22,6 +22,71 @@ Este es, de hecho, el punto de partida de muchos modelos y métodos en estadíst
 
 ## Independencia de variables aleatorias
 
+De manera intuitiva podemos decir que dos variables aleatorias son independientes si los valores que toma una de ellas no afectan a los de la otra ni a sus probabilidades.
+
+En muchas ocasiones la independencia será evidente a partir del experimento, por ejemplo, es independiente el resultado del lanzamiento de un dado y el de una moneda, por tanto las variables Puntuación obtenida con el dado y Número de caras obtenidas al lanzar la moneda una vez serán variables independientes.
+
+En otras ocasiones tenemos una dependencia clara, por ejemplo, al lanzar un dado consideremos las variables
+$X=$ puntuación del dado
+$Y=$ variable indicadora de puntuación par
+Es evidente que existe una clara dependencia, si sabemos que $Y=1$, la variable $X$ sólo puede tomar los valores 2 , 4 o 6 ; si sabemos que $X=3$, entonces, $Y=0$ forzosamente.
+
+Algunas veces podemos suponer la existencia de una cierta relación entre variables, aunque sea en forma algo abstracta y sin concretar. Por ejemplo si realizamos unas mediciones sobre unos individuos, las variables altura en cm y peso en Kg probablemente estarán relacionadas, los valores de una influirán en los valores de la otra. Intentar determinar la naturaleza exacta de la relación entre ambas es lo que en estadística conocemos como un problema de regresión.
+
+Si queremos una definición algo más formal, basta con que recordemos que dos sucesos son independientes si la probabilidad de la intersección es igual al producto de probabilidades, aplicando esta definición a sucesos del tipo $X \leq a$ tenemos la definición siguiente:
+
+### Caracterización de la independencia
+
+Diremos que dos variables aleatorias $X$ e $Y$ son independientes si y sólo si
+
+$$
+P(X \leq a \cap Y \leq b)=P(X \leq a) \cdot P(Y \leq b)=F_{X}(a) \cdot F_{Y}(b)
+$$
+
+A la función $F(x, y)=P(X \leq a \cap Y \leq b)$ se la conoce como la función de distribución conjunta de $X$ e $Y$.
+Como consecuencia inmediata de la independencia de $X$ e $Y$, se cumple lo siguiente:
+
+$$
+P(a<X \leq c \cap b<Y \leq d)=P(a<X \leq c) \cdot P(b<Y \leq d)
+$$
+
+
 ## Distribuciones multivariantes: multinomial y normal bivariante.
 
+### La distribución Multinomial
+
+::: {.callout-note icon=false}
+
+#### COMPTE:Distribució Multivariant!
+
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+:::
+
+Este modelo se puede ver como una generalización del Binomial en el que, en lugar de tener dos posibles resultados, tenemos $r$ resultados posibles.
+
+Supongamos que el resultado de una determinada experiencia puede ser $r$ valores distintos: $A_{1}, A_{2}, \ldots$ $A_{r}$ cada uno de ellos con probabilidad $p_{1}, p_{2}, \ldots, p_{r}$, respectivamente.
+
+$$
+P\left(A_{1}\right)=p_{1} ; \quad P\left(A_{2}\right)=p_{2} ; \quad \cdots \quad P\left(A_{r}\right)=p_{r} ; \quad \text { con } \quad \sum_{i=1}^{r} P\left(A_{i}\right)=1
+$$
+
+Si repetimos la experiencia $n$ veces en condiciones independientes, podemos preguntarnos la probabilidad de que el suceso $A_{1}$ aparezca $k_{1}$ veces, el suceso $A_{2}, k_{2}$ veces y así sucesivamente:
+
+$$
+P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]
+$$
+
+Al modelo estadístico que nos da dicha probabilidad se le denomina Multinomial, y su función de densidad viene dada por:
+
+$$
+\begin{gathered}
+f\left(k_{1}, k_{2}, \ldots, k_{r}\right)=P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]=\frac{n!}{k_{1}!k!\cdots k_{r}!} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{r}^{k_{r}} \\
+\operatorname{con} \sum_{i=1}^{r} P\left(A_{i}\right)=1 \quad \text { y } \quad \sum_{i=1}^{r} k_{i}=n
+\end{gathered}
+$$
+
+como se ve, el modelo Multinomial queda definido por los parámetros $\left(n, p_{1}, p_{2}, \ldots, p_{r}\right)$. La fórmula anterior puede deducirse de forma análoga al caso Binomial. En realidad, si tomamos $r=2$ tenemos exactamente el modelo Binomial.
+
+Se debe destacar que este modelo es un ejemplo de distribución multivariante, es decir, de distribución conjunta de varias ( $r$ ) variables aleatorias. En efecto, si definimos la variable aleatoria $X_{1}$ como número de veces que se produce el suceso $A_{1}$ de un total de n experiencias, y así sucesivamente, tenemos un conjunto de $r$ variables aleatorias discretas cuya función de densidad conjunta (valorada a la vez) viene definida por la anterior fórmula. Nótese que si consideramos cada una de estas variables $X_{i}(i=1,2, \ldots, r)$ por separado, su distribución es la Binomial de parámetros $n$ y $p_{i}$.
 

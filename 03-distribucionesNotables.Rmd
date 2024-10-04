@@ -308,44 +308,7 @@ $$
 
 Este resultado se extiende inmediatamente al caso de $n$ variables aleatorias independientes con distribución de Poisson. En este caso, la variable suma de todas ellas sigue una distribución de Poisson de parámetro igual a la suma de los parámetros.
 
-### La distribución Multinomial
-
-::: {.callout-note icon=false}
-
-#### COMPTE:Distribució Multivariant!
-
-Using callouts is an effective way to highlight content that your reader give special consideration or attention.
-
-:::
-
-Este modelo se puede ver como una generalización del Binomial en el que, en lugar de tener dos posibles resultados, tenemos $r$ resultados posibles.
-
-Supongamos que el resultado de una determinada experiencia puede ser $r$ valores distintos: $A_{1}, A_{2}, \ldots$ $A_{r}$ cada uno de ellos con probabilidad $p_{1}, p_{2}, \ldots, p_{r}$, respectivamente.
-
-$$
-P\left(A_{1}\right)=p_{1} ; \quad P\left(A_{2}\right)=p_{2} ; \quad \cdots \quad P\left(A_{r}\right)=p_{r} ; \quad \text { con } \quad \sum_{i=1}^{r} P\left(A_{i}\right)=1
-$$
-
-Si repetimos la experiencia $n$ veces en condiciones independientes, podemos preguntarnos la probabilidad de que el suceso $A_{1}$ aparezca $k_{1}$ veces, el suceso $A_{2}, k_{2}$ veces y así sucesivamente:
-
-$$
-P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]
-$$
-
-Al modelo estadístico que nos da dicha probabilidad se le denomina Multinomial, y su función de densidad viene dada por:
-
-$$
-\begin{gathered}
-f\left(k_{1}, k_{2}, \ldots, k_{r}\right)=P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]=\frac{n!}{k_{1}!k!\cdots k_{r}!} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{r}^{k_{r}} \\
-\operatorname{con} \sum_{i=1}^{r} P\left(A_{i}\right)=1 \quad \text { y } \quad \sum_{i=1}^{r} k_{i}=n
-\end{gathered}
-$$
-
-como se ve, el modelo Multinomial queda definido por los parámetros $\left(n, p_{1}, p_{2}, \ldots, p_{r}\right)$. La fórmula anterior puede deducirse de forma análoga al caso Binomial. En realidad, si tomamos $r=2$ tenemos exactamente el modelo Binomial.
-
-Se debe destacar que este modelo es un ejemplo de distribución multivariante, es decir, de distribución conjunta de varias ( $r$ ) variables aleatorias. En efecto, si definimos la variable aleatoria $X_{1}$ como número de veces que se produce el suceso $A_{1}$ de un total de n experiencias, y así sucesivamente, tenemos un conjunto de $r$ variables aleatorias discretas cuya función de densidad conjunta (valorada a la vez) viene definida por la anterior fórmula. Nótese que si consideramos cada una de estas variables $X_{i}(i=1,2, \ldots, r)$ por separado, su distribución es la Binomial de parámetros $n$ y $p_{i}$.
-
-#### La distribución Uniforme discreta
+### La distribución Uniforme discreta
 
 Tenemos esta distribución cuando el resultado de una experiencia aleatoria puede ser un conjunto finito de $n$ posibles resultados, todos ellos igualmente probables.
 
