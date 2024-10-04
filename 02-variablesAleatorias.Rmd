@@ -339,35 +339,6 @@ A partir de las funciones de densidad y de distribución, y teniendo en cuenta q
 Fijémonos que la probabilidad de los intervalos se corresponde con el área bajo la función de densidad dentro del intervalo considerado.
 ![](https://cdn.mathpix.com/cropped/2024_09_12_f7af3f47a4aa56dad47ag-19.jpg?height=2339&width=1236&top_left_y=92&top_left_x=409)
 
-## Independencia de variables aleatorias
-
-De manera intuitiva podemos decir que dos variables aleatorias son independientes si los valores que toma una de ellas no afectan a los de la otra ni a sus probabilidades.
-
-En muchas ocasiones la independencia será evidente a partir del experimento, por ejemplo, es independiente el resultado del lanzamiento de un dado y el de una moneda, por tanto las variables Puntuación obtenida con el dado y Número de caras obtenidas al lanzar la moneda una vez serán variables independientes.
-
-En otras ocasiones tenemos una dependencia clara, por ejemplo, al lanzar un dado consideremos las variables
-$X=$ puntuación del dado
-$Y=$ variable indicadora de puntuación par
-Es evidente que existe una clara dependencia, si sabemos que $Y=1$, la variable $X$ sólo puede tomar los valores 2 , 4 o 6 ; si sabemos que $X=3$, entonces, $Y=0$ forzosamente.
-
-Algunas veces podemos suponer la existencia de una cierta relación entre variables, aunque sea en forma algo abstracta y sin concretar. Por ejemplo si realizamos unas mediciones sobre unos individuos, las variables altura en cm y peso en Kg probablemente estarán relacionadas, los valores de una influirán en los valores de la otra. Intentar determinar la naturaleza exacta de la relación entre ambas es lo que en estadística conocemos como un problema de regresión.
-
-Si queremos una definición algo más formal, basta con que recordemos que dos sucesos son independientes si la probabilidad de la intersección es igual al producto de probabilidades, aplicando esta definición a sucesos del tipo $X \leq a$ tenemos la definición siguiente:
-
-### Caracterización de la independencia
-
-Diremos que dos variables aleatorias $X$ e $Y$ son independientes si y sólo si
-
-$$
-P(X \leq a \cap Y \leq b)=P(X \leq a) \cdot P(Y \leq b)=F_{X}(a) \cdot F_{Y}(b)
-$$
-
-A la función $F(x, y)=P(X \leq a \cap Y \leq b)$ se la conoce como la función de distribución conjunta de $X$ e $Y$.
-Como consecuencia inmediata de la independencia de $X$ e $Y$, se cumple lo siguiente:
-
-$$
-P(a<X \leq c \cap b<Y \leq d)=P(a<X \leq c) \cdot P(b<Y \leq d)
-$$
 
 ## Caracterización de una variable aleatoria a través de parámetros
 
