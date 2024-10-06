@@ -250,11 +250,11 @@ window.Quarto = {
 </header>
 
 
-<div class="calloutBox important">
-<p>Este capítulo está pendiente de revisión, para corregir posibles problemas derivados de la importación, desde la antigua version en HTML, a la versión actual.</p>
-<p>Estos problemas siempre serán <em>estéticos y no conceptuales</em>, por lo que la lectura del texto en su estado actual no debería inducir a errores conceptuales en ningún caso.</p>
-<p>La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1).</p>
-</div>
+<!-- :::: {.calloutBox .important} -->
+<!-- Este capítulo está pendiente de revisión, para corregir posibles problemas derivados de la importación, desde la antigua version en HTML, a la versión actual. -->
+<!-- Estos problemas siempre serán _estéticos y no conceptuales_, por lo que la lectura del texto en su estado actual no debería  inducir a errores conceptuales en ningún caso. -->
+<!-- La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1). -->
+<!-- :::: -->
 <section id="distribuciones-discretas" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="distribuciones-discretas"><span class="header-section-number">3.1</span> Distribuciones discretas</h2>
 <section id="la-distribución-de-bernouilli" class="level3" data-number="3.1.1">
@@ -566,20 +566,11 @@ F(k)=P[X \leq k]=\left\{\begin{array}{cc}
 \mathbf{1} &amp; \text { si } k \geq n
 \end{array}\right\}
 \]</span></p>
-<p>En el programa siguiente se muestra la forma de la función de densidad junto con los valores de la función de densidad y de la función de distribución para cualquier valor:</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-AVIS
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Posar un exemple de com fer-ho amb R</p>
-</div>
-</div>
+<!-- En el programa siguiente se muestra la forma de la función de densidad junto con los valores de la función de densidad y de la función de distribución para cualquier valor: -->
+<!-- ::: {.callout-note icon=false} -->
+<!-- #### AVIS -->
+<!-- Posar un exemple de com fer-ho amb R -->
+<!-- ::: -->
 </section>
 <section id="propiedades-del-modelo-binomial" class="level4" data-number="3.1.2.2">
 <h4 data-number="3.1.2.2" class="anchored" data-anchor-id="propiedades-del-modelo-binomial"><span class="header-section-number">3.1.2.2</span> Propiedades del modelo Binomial</h4>
@@ -874,7 +865,7 @@ F_{X}(x)=P(X \leq x)=\left\{\begin{array}{ll}
 </section>
 <section id="una-aplicación-del-modelo-uniforme-el-muestreo-de-montecarlo" class="level4" data-number="3.2.1.2">
 <h4 data-number="3.2.1.2" class="anchored" data-anchor-id="una-aplicación-del-modelo-uniforme-el-muestreo-de-montecarlo"><span class="header-section-number">3.2.1.2</span> Una aplicación del modelo Uniforme: el muestreo de Montecarlo</h4>
-<p>En ciertos casos es útil simular el muestreo de una variable aleatoria con una distribución dada. El muestreo de Montecarlo es un procedimiento general para obtener muestras aleatorias de cualquier tipo de variable (discreta o continua) si su función de distribución es conocida o se puede calcular. De hecho, todas las muestras artificiales de Statmedia han sido generadas a través del método de Montecarlo.</p>
+<p>En ciertos casos es útil simular el muestreo de una variable aleatoria con una distribución dada. El muestreo de Montecarlo es un procedimiento general para obtener muestras aleatorias de cualquier tipo de variable (discreta o continua) si su función de distribución es conocida o se puede calcular.</p>
 <p>Supongamos que queremos generar una muestra procedente de una variable aleatoria <span class="math inline">\(X\)</span> con función de distribución <span class="math inline">\(F(x)\)</span>. El proceso comprende los siguientes pasos:</p>
 <ol type="1">
 <li><p>Obtener un valor aleatorio <span class="math inline">\(y\)</span> entre cero y uno. Es decir, obtener una muestra de una distribución Uniforme entre cero y uno. La mayoría de lenguajes de programación incorporan un generador de este tipo.</p></li>
@@ -958,27 +949,17 @@ F_{X}(x)=P[X \leq x]=P\left[\frac{X-\boldsymbol{\mu}}{\boldsymbol{\sigma}} \leq 
 <p>A la distribución <span class="math inline">\(N(0,1)\)</span>, es decir, la que tiene por media cero y por desviación típica uno, se le denomina Normal reducida o tipificada. En cambio, al proceso de transformación del cálculo de la función de distribución de una Normal cualquiera a través de la Normal tipificada, se le denomina tipificación.</p>
 <p>Debemos remarcar que el proceso de tipificación no resuelve el problema de la inexistencia de la función primitiva correspondiente. Sin embargo, sí es posible, mediante técnicas de cálculo numérico, obtener la integral numérica correspondiente y elaborar unas tablas que podemos consultar. Naturalmente, la tipificación permite que con una sola tabla, la de la <span class="math inline">\(N(0,1)\)</span>, tengamos suficiente.</p>
 <p>Hoy en día, cada vez se utilizan menos tablas como la mencionada anteriormente, ya que los ordenadores, junto con los abundantes programas estadísticos existentes nos resuelven este problema. Sin embargo, la imposibilidad de integrar analíticamente la función de densidad persiste y, aunque nosotros no seamos conscientes, los programas informáticos realizan el proceso de tipificación para simplificar el problema.</p>
-<p>A continuación se presenta un programa que permite comparar la función de densidad de una distribución Normal cualquiera con la de la Normal tipificada:</p>
-</section>
-<section id="cálculo-de-probabilidades-del-modelo-normal-con-statmedia" class="level4" data-number="3.2.3.2">
-<h4 data-number="3.2.3.2" class="anchored" data-anchor-id="cálculo-de-probabilidades-del-modelo-normal-con-statmedia"><span class="header-section-number">3.2.3.2</span> Cálculo de probabilidades del modelo Normal con Statmedia</h4>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-AVIS
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Posar un exemple de com fer-ho amb R O buscar si algun Shiny ho fa</p>
-</div>
-</div>
-<p>El siguiente programa dibuja el área bajo de la función de densidad de una Normal cualquiera, a la izquierda de un valor <span class="math inline">\(x\)</span>, es decir, el valor de la función de distribución en el punto <span class="math inline">\(x\)</span>, cuyo valor también calcula el programa.</p>
-<p>Para acabar, debemos recordar que Statmedia dispone de una calculadora estadística que también nos permite calcular la función de distribución de cualquier valor para una distribución Normal cualquiera. A continuación se muestra dicha calculadora una vez se ha escogido la opción de calculadora probabilística y, posteriormente, el modelo Normal:</p>
-<p>Como podéis observar, calcula la función de densidad, la de distribución y la inversa de esta última. Además, incluye otras distribuciones ya vistas o que se verán posteriormente.</p>
-<p>Para utilizar esta calculadora sólo tenéis que apretar el botón Calculadora de la barra de navegación.</p>
+<!-- A continuación se presenta un programa que permite comparar la función de densidad de una distribución Normal cualquiera con la de la Normal tipificada: -->
+<!-- #### Cálculo de probabilidades del modelo Normal con Statmedia -->
+<!-- ::: {.callout-note icon=false} -->
+<!-- ##### AVIS -->
+<!-- Posar un exemple de com fer-ho amb R -->
+<!-- O buscar si algun Shiny ho fa -->
+<!-- ::: -->
+<!-- El siguiente programa dibuja el área bajo de la función de densidad de una Normal cualquiera, a la izquierda de un valor $x$, es decir, el valor de la función de distribución en el punto $x$, cuyo valor también calcula el programa. -->
+<!-- Para acabar, debemos recordar que Statmedia dispone de una calculadora estadística que también nos permite calcular la función de distribución de cualquier valor para una distribución Normal cualquiera. A continuación se muestra dicha calculadora una vez se ha escogido la opción de calculadora probabilística y, posteriormente, el modelo Normal: -->
+<!-- Como podéis observar, calcula la función de densidad, la de distribución y la inversa de esta última. Además, incluye otras distribuciones ya vistas o que se verán posteriormente. -->
+<!-- Para utilizar esta calculadora sólo tenéis que apretar el botón Calculadora de la barra de navegación. -->
 </section>
 </section>
 <section id="la-distribución-gamma" class="level3" data-number="3.2.4">
