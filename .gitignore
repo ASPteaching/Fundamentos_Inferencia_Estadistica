@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .Rhistory
 .RData
 .Rproj.user
@@ -49,6 +48,9 @@ vignettes/*.pdf
 # pkgdown site
 docs/
 
+# Complements
+Complementos/
+
 # translation temp files
 po/*~
 
@@ -56,4 +58,3 @@ po/*~
 rsconnect/
 
 /.quarto/
->>>>>>> 47da70554f4e5a3cbfeacef62f6ed46eee56e333
